@@ -1,0 +1,17 @@
+backend/.venv/
+backend/data/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.DS_Store
+node_modules/
+.venv/
+*.pyc
+.claude/settings.local.json
+# client statements / working files never go to git
+*.xls
+*.xlsx
+*.xlsm
+*.csv
+*.pdf
+*.db

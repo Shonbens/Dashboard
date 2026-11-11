@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Theme tokens (space-separated RGB so Tailwind can apply /alpha).
+   IBI brand: navy #161932, cyan #00ADDC, warm grey #736F72 (from ibi.co.il).
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --page: 244 245 248;
+  --surface: 255 255 255;
+  --primary: 22 25 50;
+  --on-primary: 255 255 255;
+
+  --navy-50: 238 240 247; --navy-100: 217 220 236; --navy-200: 179 185 213; --navy-300: 132 140 182;
+  --navy-400: 88 97 146; --navy-500: 58 66 120; --navy-600: 42 48 96; --navy-700: 32 37 76;
+  --navy-800: 27 31 62; --navy-900: 22 25 50;
+
+  --brand-50: 230 248 253; --brand-100: 199 239 249; --brand-200: 147 224 243; --brand-300: 85 203 235;
+  --brand-400: 31 185 226; --brand-500: 0 173 220; --brand-600: 0 145 188; --brand-700: 0 117 154;
+  --brand-800: 7 94 123; --brand-900: 12 76 99;
+
+  --slate-50: 248 249 251; --slate-100: 240 242 246; --slate-200: 226 230 237; --slate-300: 203 210 222;
+  --slate-400: 148 157 176; --slate-500: 104 114 136; --slate-600: 76 86 108; --slate-700: 52 61 82;
+  --slate-800: 32 38 58; --slate-900: 20 24 42;
+
+  --emerald-50: 236 253 245; --emerald-100: 209 250 229; --emerald-200: 167 243 208; --emerald-300: 110 231 183;
+  --emerald-400: 52 211 153; --emerald-500: 16 185 129; --emerald-600: 5 150 105; --emerald-700: 4 120 87;
+  --emerald-800: 6 95 70; --emerald-900: 6 78 59;
+  --amber-50: 255 251 235; --amber-100: 254 243 199; --amber-200: 253 230 138; --amber-300: 252 211 77;
+  --amber-400: 251 191 36; --amber-500: 245 158 11; --amber-600: 217 119 6; --amber-700: 180 83 9;
+  --amber-800: 146 64 14; --amber-900: 120 53 15;
+  --red-50: 254 242 242; --red-100: 254 226 226; --red-200: 254 202 202; --red-300: 252 165 165;
+  --red-400: 248 113 113; --red-500: 239 68 68; --red-600: 220 38 38; --red-700: 185 28 28;
+  --red-800: 153 27 27; --red-900: 127 29 29;
+  --sky-50: 240 249 255; --sky-100: 224 242 254; --sky-200: 186 230 253; --sky-300: 125 211 252;
+  --sky-400: 56 189 248; --sky-500: 14 165 233; --sky-600: 2 132 199; --sky-700: 3 105 161;
+  --sky-800: 7 89 133; --sky-900: 12 74 110;
+  --orange-50: 255 247 237; --orange-100: 255 237 213; --orange-200: 254 215 170; --orange-300: 253 186 116;
+  --orange-400: 251 146 60; --orange-500: 249 115 22; --orange-600: 234 88 12; --orange-700: 194 65 12;
+  --orange-800: 154 52 18; --orange-900: 124 45 18;
+  --violet-50: 245 243 255; --violet-100: 237 233 254; --violet-200: 221 214 254; --violet-300: 196 181 253;
+  --violet-400: 167 139 250; --violet-500: 139 92 246; --violet-600: 124 58 237; --violet-700: 109 40 217;
+  --violet-800: 91 33 182; --violet-900: 76 29 149;
+
+  /* Validated categorical series (dataviz reference palette – light steps) */
+  --s1: 42 120 214; --s2: 235 104 52; --s3: 27 175 122; --s4: 237 161 0;
+  --s5: 232 123 164; --s6: 0 131 0; --s7: 98 80 214; --s8: 227 73 72; --s-other: 163 163 160;
+  --gain: 42 120 214; --loss: 227 73 72;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --page: 11 13 28;
+  --surface: 21 25 46;
+  --primary: 0 173 220;
+  --on-primary: 12 15 34;
+
+  --navy-50: 24 29 56; --navy-100: 32 38 72; --navy-200: 48 56 98; --navy-300: 72 82 132;
+  --navy-400: 110 120 170; --navy-500: 150 158 200; --navy-600: 180 186 220; --navy-700: 204 208 232;
+  --navy-800: 12 14 30; --navy-900: 10 12 26;
+
+  --brand-50: 9 43 58; --brand-100: 12 58 78; --brand-200: 18 80 105; --brand-300: 26 111 143;
+  --brand-400: 34 166 208; --brand-500: 43 187 230; --brand-600: 71 198 236; --brand-700: 111 211 241;
+  --brand-800: 147 222 245; --brand-900: 184 233 248;
+
+  --slate-50: 16 20 38; --slate-100: 30 36 64; --slate-200: 40 48 83; --slate-300: 54 64 106;
+  --slate-400: 125 134 168; --slate-500: 154 162 192; --slate-600: 180 187 212; --slate-700: 205 210 228;
+  --slate-800: 227 230 240; --slate-900: 243 244 249;
+
+  --emerald-50: 8 44 34; --emerald-100: 10 60 45; --emerald-200: 14 84 62; --emerald-300: 22 120 88;
+  --emerald-700: 74 222 160; --emerald-800: 110 231 183; --emerald-900: 167 243 208;
+  --amber-50: 52 36 6; --amber-100: 70 48 8; --amber-200: 96 66 10; --amber-300: 130 90 14;
+  --amber-700: 251 191 36; --amber-800: 252 211 77; --amber-900: 253 230 138;
+  --red-50: 58 18 24; --red-100: 76 22 30; --red-200: 104 30 40;
+  --red-700: 248 113 113; --red-800: 252 165 165; --red-900: 254 202 202;
+  --sky-50: 10 38 60; --sky-200: 18 72 108; --sky-800: 125 211 252;
+  --orange-50: 58 28 10; --orange-200: 104 52 18; --orange-800: 253 186 116;
+  --violet-50: 36 26 70; --violet-700: 196 181 253;
+
+  /* Dark steps of the same validated hues */
+  --s1: 57 135 229; --s2: 217 89 38; --s3: 25 158 112; --s4: 201 133 0;
+  --s5: 213 81 129; --s6: 0 131 0; --s7: 144 133 233; --s8: 230 103 103; --s-other: 110 112 120;
+  --gain: 57 135 229; --loss: 230 103 103;
+}
+
+@layer base {
+  html { direction: rtl; }
+  body {
+    @apply bg-page text-slate-800 font-sans antialiased;
+    font-feature-settings: 'tnum' 1;
+  }
+  input[type='number']::-webkit-inner-spin-button { opacity: 0.35; }
+  ::selection { background: rgb(var(--brand-200)); }
+}
+
+@layer components {
+  .card { @apply bg-surface rounded-2xl shadow-card border border-slate-200/70; }
+  .card-title { @apply text-[15px] font-semibold text-slate-800; }
+  .btn { @apply inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400; }
+  .btn-primary { @apply btn bg-primary text-on-primary hover:opacity-90 shadow-sm; }
+  .btn-ghost { @apply btn text-slate-600 hover:bg-slate-100; }
+  .btn-outline { @apply btn border border-slate-300 bg-surface text-slate-700 hover:bg-slate-50; }
+  .num { @apply tabular-nums; direction: ltr; unicode-bidi: isolate; }
+  .input { @apply rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100; }
+  .th { @apply px-3 py-2.5 text-right text-xs font-semibold text-slate-500 whitespace-nowrap; }
+  .td { @apply px-3 py-2.5 whitespace-nowrap; }
+  .tdc { @apply px-2 py-1 whitespace-nowrap; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-wide text-slate-500; }
+}
+
+input[type='range'].aum-range { accent-color: rgb(var(--brand-600)); }
+select { background-color: rgb(var(--surface)); }
+
+@keyframes shimmer { 100% { transform: translateX(-100%); } }
+.skeleton { position: relative; overflow: hidden; background: rgb(var(--slate-100)); border-radius: 0.5rem; }
+.skeleton::after {
+  content: ''; position: absolute; inset: 0; transform: translateX(100%);
+  background: linear-gradient(90deg, transparent, rgb(var(--surface) / 0.6), transparent);
+  animation: shimmer 1.4s infinite;
+}
+@media (prefers-reduced-motion: reduce) { .skeleton::after { animation: none; } }
